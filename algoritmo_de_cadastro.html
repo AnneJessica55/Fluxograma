@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Cadastro de peças</title>
+</head>
+<body>
+<script>
+    let estoque = parseInt(prompt(`Digite a quantidade de produto em estoque:`));
+    document.write(`A quantidade inicial em estoque é de ${estoque} peças.<br>`);
+    let cont = 1;
+    while (cont == 1){
+        let op = prompt(`Digite "e" para entrada de peças.\nDigite "s" para saída de peças.`);
+        if (op == "e"){
+            let quantidade = parseInt(prompt(`Digite a quantidade de entrada de peças:`));
+            estoque += quantidade;
+            document.write(`${quantidade} peças foram compradas.<br>O estoque contém ${estoque} peças. <br>`);
+        } else if(op == "s"){
+            let quantidade = parseInt(prompt(`Digite a quantidade de saída de peças:`));
+            if(quantidade <= estoque){
+            estoque -= quantidade; 
+            document.write(`${quantidade} peças foram vendidas.<br>O estoque contém ${estoque} peças. <br>`);} else{
+                window.alert(`A saída não pode ser maior que a quantidade em estoque. Por favor repita a operação`);
+                document.write(`Não há peças suficientes para a venda<br>`);
+            }
+        } else{
+            window.alert(`Comando inválido. Digite "e" para entrada de peças.<br>Digite "s" para saída de peças.`);
+        }
+        cont = parseInt(prompt(`Deseja continuar a operação?\n 1 - Sim.\n 2 - Não.\n Digite apenas o número da opção desejada.`));
+        while(cont != 1 && cont != 2){
+            cont = parseInt(prompt(`Opção inválida!!\n Deseja continuar a operação?\n 1 - Sim.\n 2 - Não.\n Digite apenas o número da opção desejada.`));
+        }
+    }
+</script>
+    
+</body>
+</html>
